@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Minecraft Connect 4</string>
+    <string name="dummy_button">Dummy Button</string>
+
+    <!-- Menus -->
+    <string name="menu_quick_game">Quick Game</string>
+    <string name="menu_start_game">Start Game</string>
+    <string name="menu_achievements">Achievements</string>
+    <string name="menu_options">Options</string>
+    <string name="menu_highscores">Highscores</string>
+    <string name="menu_stats">Statistics</string>
+    <string name="menu_about">About</string>
+
+    <!-- Menu controls -->
+    <string name="menu_back">Back</string>
+    <string name="menu_start">Play</string>
+    <string name="dummy">Dummy</string>
+    <string name="cd_banner">Minecraft Connect 4</string>
+    <string name="title_activity_quick_game">QuickGameActivity</string>
+    <string name="action_settings">Settings</string>
+    
+    <!-- Menu titles -->
+    <string name="quick_game_title">Quick Game</string>
+    
+    <!-- Quick game -->
+    <string name="quick_game_opponent">Opponent Type</string>
+    <string name="quick_game_difficulty">Difficulty</string>
+    <string name="quick_game_first_turn">First Turn</string>
+    
+    <!-- Quick game opponent modes -->
+    <string name="quick_game_opponent_ai">AI</string>
+    <string name="quick_game_opponent_player">Player</string>
+    
+    <!-- Shared -->
+    <string name="select_token">Select Your Token</string>
+    <string name="player">Player</string>
+    <string name="player_1">Player I</string>
+    <string name="player_2">Player II</string>
+    
+    <!-- Difficulties -->
+    <string name="difficulty_0">Peaceful</string>
+    <string name="difficulty_1">Easy</string>
+    <string name="difficulty_2">Normal</string>
+    <string name="difficulty_3">Hard</string>
+    
+    <!-- Game Menu -->
+    <string name="game_menu_return">Return to Game</string>
+    <string name="game_menu_restart">Restart</string>
+    <string name="game_menu_menu">Return to Menu</string>
+    
+    <!-- Game outcomes -->
+    <string name="outcome_draw">DRAW</string>
+    <string name="outcome_player1">PLAYER I</string>
+    <string name="outcome_player2">PLAYER II</string>
+    <string name="outcome_win">WON!</string>
+    <string name="outcome_lost">LOST! :(</string>
+    <string name="outcome_won">WON! :)</string>
+    <string name="outcome_you">YOU</string>
+    
+    <!-- Stats menu -->
+    <string name="stats_clear">Clear</string>
+    <string name="stats_games">Games Played</string>
+    <string name="stats_pvps">PvPs</string>
+    <string name="stats_wins">Times Won (vs AI)</string>
+    <string name="stats_defeats">Times Lost (to AI)</string>
+    <string name="stats_draws">Draws (vs AI)</string>
+    <string name="stats_time">Seconds played</string>
+    
+    <!-- FPS -->
+    <string name="fps_show">Enable</string>
+    <string name="fps_hide">Disable</string>
+    <string name="fps_title">Show FPS counter</string>
+    
+    <!-- About -->
+    <string name="about">&#169; 2014 Aleksandr Belkin.</string>
+    <string name="about2">Style and most textures are intillectual property of Mojang.</string>
+
+</resources>
