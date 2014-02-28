@@ -50,6 +50,7 @@ class BaseActivity extends Activity {
 			rules.importFrom(getIntent().getExtras());
 		}
 		
+		// set activity to fullscreen
 		getWindow().setFlags(
 			WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN

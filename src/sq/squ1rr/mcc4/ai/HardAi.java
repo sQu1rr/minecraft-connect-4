@@ -10,22 +10,21 @@ import sq.squ1rr.mcc4.rules.Player;
  * @author Aleksandr Belkin
  */
 public class HardAi extends EasyAi {
-	/** number of columns */
-	protected final int cols;
-	
-	/** number of rows */
-	protected final int rows;
-	
+	/**
+	 * Create and initialise AI
+	 * @param grid
+	 */
 	public HardAi(int[][] grid) {
 		super(grid);
-		
-		cols = grid.length;
-		rows = grid[0].length;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see sq.squ1rr.mcc4.ai.EasyAi#run()
+	 */
 	@Override
 	public int run() {
-		int col = cols / 2;
+		int col = cols / 2; // start in the centre
 		int alpha = 0;
 		
 		for(int i = 0; i < grid.length; ++i) {
@@ -38,6 +37,7 @@ public class HardAi extends EasyAi {
 			}
 		}
 
+		// lets be sure the move is valid
 		return grid[col][0] == 0 ? col : super.run();
 	}
 	
@@ -51,10 +51,10 @@ public class HardAi extends EasyAi {
 	
 	private int count(int x, int y, int p) {
 		int com = 0;
-		com = Math.max(com, countCom(x, y, -1, 0, p));
-		com = Math.max(com, countCom(x, y, -1, -1, p));
-		com = Math.max(com, countCom(x, y, -1, 1, p));
-		com = Math.max(com, countCom(x, y, 0, -1, p));
+		com = Math.max(com, countCom(x, y, X_L, 0,		p));
+		com = Math.max(com, countCom(x, y, X_L, Y_T,	p));
+		com = Math.max(com, countCom(x, y, X_L, Y_B,	p));
+		com = Math.max(com, countCom(x, y, 0,	Y_T,	p));
 		return com;
 	}
 	
@@ -65,6 +65,7 @@ public class HardAi extends EasyAi {
 		int j2 = -j;
 		
 		if(p == -1) {
+			// count both player combinations possible (from both sides)
 			int temp = 0;
 			temp += combination(x + i, y + j, i, j, Player.PLAYER1);
 			temp += combination(x + i2, y + j2, i2, j2, Player.PLAYER1);
@@ -72,7 +73,7 @@ public class HardAi extends EasyAi {
 			temp += combination(x + i, y + j, i, j, Player.PLAYER2);
 			temp += combination(x + i2, y + j2, i2, j2, Player.PLAYER2);
 			com = Math.max(temp, com);
-		} else {
+		} else { // count one player combinations (from both sides)
 			int temp = 0;
 			temp += combination(x + i, y + j, i, j, p);
 			temp += combination(x + i2, y + j2, i2, j2, p);

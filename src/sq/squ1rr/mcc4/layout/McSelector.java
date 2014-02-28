@@ -66,7 +66,7 @@ public class McSelector extends McButton {
 	}
 	
 	/**
-	 * Sets new labels from string resources and assignes ids
+	 * Sets new labels from string resources and assigns IDs
 	 */
 	public void setLabels(int[] stringIds) {
 		String[] labels = new String[stringIds.length];

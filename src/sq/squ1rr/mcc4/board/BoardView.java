@@ -68,7 +68,7 @@ public class BoardView extends GLSurfaceView {
 	}
 	
 	/**
-	 * Sets whethe FPS is needs to be counted
+	 * Sets whether FPS is needs to be counted
 	 * @param countFps
 	 */
 	public void setCountFps(boolean countFps) {

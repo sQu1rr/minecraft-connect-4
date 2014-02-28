@@ -14,8 +14,15 @@ import javax.microedition.khronos.opengles.GL10;
  */
 public class Sprite {
 	/**
+	 * How to flip the texture
+	 *
+	 */
+	public enum Flip {
+		HORIZONTALLY, VERTICALLY;
+	}
+	
+	/**
 	 * Colour Mode
-	 * @author squ1rr
 	 */
 	public enum Mode {
 		NORMAL, DARK, BRIGHT
@@ -166,6 +173,24 @@ public class Sprite {
 	public void setColour(Mode mode, float colour) {
 		setColour(mode);
 		setColour(colour);
+	}
+	
+	public void flip(Flip how) {
+		switch(how) {
+		case HORIZONTALLY:
+			texture[0] = -texture[0];
+			texture[2] = -texture[2];
+			texture[4] = -texture[4];
+			texture[6] = -texture[6];
+			break;
+		case VERTICALLY:
+			texture[1] = -texture[1];
+			texture[3] = -texture[3];
+			texture[5] = -texture[5];
+			texture[7] = -texture[7];
+			break;
+		}
+		initialiseTexture();
 	}
 	
 	/**

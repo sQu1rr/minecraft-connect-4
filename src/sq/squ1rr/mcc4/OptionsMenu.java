@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 /**
- * Main menu layout. Builds the layout and handles user interactions.
+ * Options menu layout. Builds the layout and handles user interactions.
  * @author Aleksandr Belkin
  */
 public class OptionsMenu extends MenuLayout {
@@ -20,6 +20,7 @@ public class OptionsMenu extends MenuLayout {
 	/** parent activity */
 	private final MainMenuActivity activity;
 	
+	/** game rules */
 	private final GameRules rules;
 	
 	/*
@@ -65,10 +66,6 @@ public class OptionsMenu extends MenuLayout {
 	 * Handles button clicks
 	 */
 	private OnClickListener clickListener = new OnClickListener() {
-		/*
-		 * (non-Javadoc)
-		 * @see android.view.View.OnClickListener#onClick(android.view.View)
-		 */
 		@Override
 		public void onClick(View view) {
 			if(view == btnBack) {

@@ -15,7 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 
 /**
- * Main menu layout. Builds the layout and handles user interactions.
+ * Stats menu layout. Builds the layout and handles user interactions.
  * @author Aleksandr Belkin
  */
 public class StatsMenu extends MenuLayout {
@@ -29,6 +29,7 @@ public class StatsMenu extends MenuLayout {
 	private McButton btnBack = null;
 	private McButton btnClear = null;
 	
+	/** stats database */
 	private final Stats stats;
 	
 	/**
@@ -78,6 +79,12 @@ public class StatsMenu extends MenuLayout {
 		createRow(layout, Stats.STATS_TIME, R.string.stats_time);
 	}
 	
+	/**
+	 * Create a row of statistics (description on the left, value on the right)
+	 * @param layout
+	 * @param stat
+	 * @param str
+	 */
 	private void createRow(LayoutManager layout, int stat, int str) {
 		McGroup group = new McGroup(activity);
 			group.setOrientation(LinearLayout.HORIZONTAL);
@@ -86,12 +93,14 @@ public class StatsMenu extends MenuLayout {
 					LayoutParams.WRAP_CONTENT, 
 					1f
 			);
-			
+		
+		// description
 		McText title = new McText(activity);
 			title.setText(activity.getString(str));
 			title.setTextColor(McStyle.TEXT_COLOUR_TITLE);
 		group.addView(title);
 		
+		// value
 		int val = stats.get(stat);
 		McText value = new McText(activity);
 			value.setText(String.valueOf(val == -1 ? 0 : val));
@@ -122,7 +131,7 @@ public class StatsMenu extends MenuLayout {
 			btnBack.setText(activity.getString(R.string.menu_back));
 		group.addView(btnBack);
 		
-		// start button
+		// clear button
 		btnClear = new McButton(activity);
 			btnClear.setOnClickListener(clickListener);
 			btnClear.setText(activity.getString(R.string.stats_clear));

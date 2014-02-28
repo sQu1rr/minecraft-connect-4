@@ -25,9 +25,13 @@ public enum Texture {
 	/** hold resource ID for the texture */
 	private int resourceId;
 	
+	/** OpenGL texture ID */
 	private int textureId;
 	
+	/** texture width */
 	private int width;
+	
+	/** texture height */
 	private int height;
 	
 	/**

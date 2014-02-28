@@ -21,7 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 
 /**
- * Main menu layout. Builds the layout and handles user interactions.
+ * Quick a=game menu layout. Builds the layout and handles user interactions.
  * @author Aleksandr Belkin
  */
 public class QuickGameMenu extends MenuLayout {

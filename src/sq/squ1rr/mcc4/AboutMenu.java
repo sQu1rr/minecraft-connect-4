@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 /**
- * Main menu layout. Builds the layout and handles user interactions.
+ * About menu layout. Builds the layout and handles user interactions.
  * @author Aleksandr Belkin
  */
 public class AboutMenu extends MenuLayout {
@@ -62,6 +62,7 @@ public class AboutMenu extends MenuLayout {
 	 * @param layout
 	 */
 	private void buildContent(LayoutManager layout) {
+		// title
 		McText title = new McText(activity);
 			title.setText(activity.getString(R.string.about));
 			title.setTextColor(McStyle.TEXT_COLOUR_TITLE);

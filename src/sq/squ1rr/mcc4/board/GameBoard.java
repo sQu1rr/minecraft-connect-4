@@ -14,6 +14,7 @@ import sq.squ1rr.mcc4.ai.PeacefulAi;
 import sq.squ1rr.mcc4.board.BoardLogic.Outcome;
 import sq.squ1rr.mcc4.gl.Rectangle;
 import sq.squ1rr.mcc4.gl.Sprite;
+import sq.squ1rr.mcc4.gl.Sprite.Flip;
 import sq.squ1rr.mcc4.gl.Sprite.Mode;
 import sq.squ1rr.mcc4.gl.SpriteBatch;
 import sq.squ1rr.mcc4.rules.GameRules;
@@ -55,13 +56,29 @@ public class GameBoard {
 	/*
 	 * Sprites
 	 */
+	/** header sprites */
 	SpriteBatch header;
+	
+	/**
+	 * board and background sprites
+	 * [row * COLS + col] = board sprites
+	 * other indices are background
+	 */
 	SpriteBatch board;
+	
+	/** first player tokens */
 	SpriteBatch tokens1;
+	
+	/** second player tokens */
 	SpriteBatch tokens2;
 	
+	/** player #1 icon */
 	Sprite player1;
+	
+	/** player #2 icon */
 	Sprite player2;
+	
+	/** menu button */
 	Sprite menu;
 	
 	/*
@@ -182,7 +199,7 @@ public class GameBoard {
 	 */
 	private void loadTextures(GL10 gl) {
 		Texture.PLAYER2.setResource(
-			ai == null ? R.drawable.player2 : R.drawable.creeper
+			ai == null ? R.drawable.player : R.drawable.creeper
 		);
 		Texture.TOKEN1.setResource(rules.getRule(GameRules.TOKEN));
 		Texture.TOKEN2.setResource(rules.getRule(GameRules.TOKEN2));
@@ -434,6 +451,7 @@ public class GameBoard {
 			p2.setX(width - p2.getWidth() + Texture.PLAYER2.getWidth() / 9);
 		player2 = new Sprite(p2);
 		player2.setTextureId(Texture.PLAYER2.get());
+		player2.flip(Flip.HORIZONTALLY);
 		
 		// menu
 		float menuSize = width / 5;

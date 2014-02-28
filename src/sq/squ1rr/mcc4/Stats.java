@@ -13,7 +13,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 public class Stats extends SQLiteOpenHelper {
 	/*
-	 * Stats
+	 * Stats IDs
 	 */
 	public static final int STATS_GAMES		= 0;
 	public static final int STATS_PVPS		= 1;
@@ -25,7 +25,6 @@ public class Stats extends SQLiteOpenHelper {
 	/*
 	 * Database constants
 	 */
-	
 	/** database version */
 	private static final int DATABASE_VERSION = 1;
 	 
@@ -70,7 +69,11 @@ public class Stats extends SQLiteOpenHelper {
         onCreate(db);
     }
     
-    
+    /**
+     * Insert a row in a table
+     * @param id
+     * @param value
+     */
     private void insert(int id, int value) {
         SQLiteDatabase db = this.getWritableDatabase();
      
@@ -82,6 +85,12 @@ public class Stats extends SQLiteOpenHelper {
         db.close();
     }
     
+    /**
+     * Update a rew in a table
+     * @param id
+     * @param value
+     * @return
+     */
     private int update(int id, int value) {
     	SQLiteDatabase db = this.getWritableDatabase();
         
@@ -96,12 +105,20 @@ public class Stats extends SQLiteOpenHelper {
         return result;
     }
     
+    /**
+     * Clear all info
+     */
     public void deleteAll() {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_STATS, null, null);
         db.close();
     }
     
+    /**
+     * Gets a row value if it is present, -1 otherwise
+     * @param id
+     * @return
+     */
     public int get(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
      
@@ -120,6 +137,12 @@ public class Stats extends SQLiteOpenHelper {
         return result;
     }
     
+    /**
+     * Updates a row if it's present (by adding value to it),
+     * adds new row otherwise
+     * @param id
+     * @param value
+     */
     public void add(int id, int value) {
     	int old = get(id);
     	if(old != -1) {

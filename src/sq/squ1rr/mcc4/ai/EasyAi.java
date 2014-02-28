@@ -16,6 +16,14 @@ public class EasyAi extends PeacefulAi {
 	/** number of rows */
 	protected final int rows;
 	
+	/*
+	 * Indices offsets
+	 */
+	protected static final int X_L = -1;
+	protected static final int X_R = 1;
+	protected static final int Y_T = -1;
+	protected static final int Y_B = 1;
+	
 	/**
 	 * Create and initialise AI
 	 * @param grid
@@ -56,7 +64,7 @@ public class EasyAi extends PeacefulAi {
 	 */
 	protected int findRow(int col) {
 		int row = 0;
-		while(row < rows - 1 && grid[col][row+1] == 0) row++;
+		while(row < rows - 1 && grid[col][row + Y_B] == 0) row++;
 		return row;
 	}
 	
@@ -83,11 +91,11 @@ public class EasyAi extends PeacefulAi {
 	 */
 	protected int countCombinations(int col, int row, int p) {
 		int com = 0;
-		com = Math.max(com, combination(col-1,	row,	-1,	0, p));
-		com = Math.max(com, combination(col-1,	row+1,	-1,	1, p));
-		com = Math.max(com, combination(col,	row+1,	0,	1, p));
-		com = Math.max(com, combination(col+1,	row+1,	1,	1, p));
-		com = Math.max(com, combination(col+1,	row,	1,	0, p));
+		com = Math.max(com, combination(col+X_L,	row,		X_L, 0,	  p));
+		com = Math.max(com, combination(col+X_L,	row+Y_B,	X_L, Y_B, p));
+		com = Math.max(com, combination(col,		row+Y_B,	0,	 Y_B, p));
+		com = Math.max(com, combination(col+X_R,	row+Y_B,	X_R, Y_B, p));
+		com = Math.max(com, combination(col+X_R,	row,		X_R, 0,   p));
 		return com;
 	}
 	

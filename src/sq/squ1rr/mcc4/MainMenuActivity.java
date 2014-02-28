@@ -44,6 +44,10 @@ public class MainMenuActivity extends BaseActivity {
 		showMenu(MenuId.MAIN_MENU, false);
 	}
 	
+	/**
+	 * Shows selected menu
+	 * @param menuId
+	 */
 	public void showMenu(MenuId menuId) {
 		showMenu(menuId, true);
 	}
