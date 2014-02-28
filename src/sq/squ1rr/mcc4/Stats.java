@@ -15,12 +15,12 @@ public class Stats extends SQLiteOpenHelper {
     /*
      * Stats IDs
      */
-    public static final int STATS_GAMES        = 0;
+    public static final int STATS_GAMES       = 0;
     public static final int STATS_PVPS        = 1;
     public static final int STATS_WINS        = 2;
-    public static final int STATS_DEFEATS    = 3;
+    public static final int STATS_DEFEATS     = 3;
     public static final int STATS_TIME        = 4;
-    public static final int STATS_DRAWS        = 5;
+    public static final int STATS_DRAWS       = 5;
     
     /*
      * Database constants
