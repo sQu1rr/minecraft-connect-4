@@ -125,8 +125,7 @@ public class BoardRenderer implements Renderer {
     public void onDrawFrame(GL10 gl) { 
         if(pause) return; // shouldn't be executed anyway, but lets be safe
         
-        // clear the screen
-        gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
+        bind(gl);
         
         // draw the game
         game.draw(gl);        
@@ -140,19 +139,40 @@ public class BoardRenderer implements Renderer {
                 frames = 0;
                 lastTime = currentTime;
             }
-            
-            gl.glEnable(GL10.GL_BLEND);
-            gl.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
-            
-            gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
-            gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
-            
-            gl.glFrontFace(GL10.GL_CW);
 
             glText.draw("" + fps, 8, getHeight() - glText.getHeight() - 8);
-            
-            gl.glDisable(GL10.GL_BLEND);
         }
+        
+        unbind(gl);
+    }
+    
+    /**
+     * Enable appropriate flags
+     * @param gl
+     */
+    private void bind(GL10 gl) {
+        // clear the screen
+        gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
+        
+        gl.glEnable(GL10.GL_BLEND);
+        gl.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
+        
+        gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
+        gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
+        
+        gl.glFrontFace(GL10.GL_CW);
+    }
+    
+    /**
+     * Disable flags
+     * @param gl
+     */
+    private void unbind(GL10 gl) {
+        gl.glBindTexture(GL10.GL_TEXTURE_2D, 0);
+        
+        gl.glDisableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
+        gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
+        gl.glDisable(GL10.GL_BLEND);
     }
  
     /**

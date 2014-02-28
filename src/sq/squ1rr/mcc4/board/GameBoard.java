@@ -517,8 +517,6 @@ public class GameBoard {
     }
     
     public void draw(GL10 gl) {
-        bind(gl);
-        
         // draw header
         header.draw(gl);
         
@@ -537,36 +535,8 @@ public class GameBoard {
         
         // draw menu
         menu.draw(gl);
-        
-        unbind(gl);
     }
-    
-    /**
-     * Enable appropriate flags
-     * @param gl
-     */
-    private void bind(GL10 gl) {
-        gl.glEnable(GL10.GL_BLEND);
-        gl.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
-        
-        gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
-        gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
-        
-        gl.glFrontFace(GL10.GL_CW);
-    }
-    
-    /**
-     * Disable flags
-     * @param gl
-     */
-    private void unbind(GL10 gl) {
-        gl.glBindTexture(GL10.GL_TEXTURE_2D, 0);
-        
-        gl.glDisableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
-        gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
-        gl.glDisable(GL10.GL_BLEND);
-    }
-    
+
     /**
      * Put token into a column
      * @param column
