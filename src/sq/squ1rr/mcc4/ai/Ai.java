@@ -1,5 +1,5 @@
 /* COPYRIGHT (C) 2014 Aleksandr Belkin. All Rights Reserved. */
-package ai;
+package sq.squ1rr.mcc4.ai;
 
 /**
  * Provides a simple interface for AI classes.

@@ -1,5 +1,5 @@
 /* COPYRIGHT (C) 2014 Aleksandr Belkin. All Rights Reserved. */
-package ai;
+package sq.squ1rr.mcc4.ai;
 
 /**
  * The most basic AI, just returns the random column (but the legal move)
