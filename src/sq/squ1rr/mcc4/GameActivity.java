@@ -65,7 +65,7 @@ public class GameActivity extends BaseActivity {
 	 */
 	@Override
 	protected void onPause() {
-		timePlayed = (int)((new Date().getTime() - lastTimestamp) / 1000);
+		timePlayed += (int)((new Date().getTime() - lastTimestamp) / 1000);
 		
 		view.onPause();
 		super.onPause();
@@ -107,9 +107,7 @@ public class GameActivity extends BaseActivity {
 	 * @return
 	 */
 	public int getTimePlayed() {
-		timePlayed = (int)((new Date().getTime() - lastTimestamp) / 1000);
-		
-		return timePlayed;
+		return timePlayed + (int)((new Date().getTime() - lastTimestamp) / 1000);
 	}
 	
 	/** Listener for the menu buttons */
