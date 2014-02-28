@@ -6,6 +6,6 @@ package sq.squ1rr.mcc4.rules;
  * @author Aleksandr Belkin
  */
 public class Player {
-	public static final int PLAYER1 = 1;
-	public static final int PLAYER2 = 2;
+    public static final int PLAYER1 = 1;
+    public static final int PLAYER2 = 2;
 }

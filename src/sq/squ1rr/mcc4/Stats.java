@@ -12,28 +12,28 @@ import android.database.sqlite.SQLiteOpenHelper;
  * @author squ1rr
  */
 public class Stats extends SQLiteOpenHelper {
-	/*
-	 * Stats IDs
-	 */
-	public static final int STATS_GAMES		= 0;
-	public static final int STATS_PVPS		= 1;
-	public static final int STATS_WINS		= 2;
-	public static final int STATS_DEFEATS	= 3;
-	public static final int STATS_TIME		= 4;
-	public static final int STATS_DRAWS		= 5;
-	
-	/*
-	 * Database constants
-	 */
-	/** database version */
-	private static final int DATABASE_VERSION = 1;
-	 
+    /*
+     * Stats IDs
+     */
+    public static final int STATS_GAMES        = 0;
+    public static final int STATS_PVPS        = 1;
+    public static final int STATS_WINS        = 2;
+    public static final int STATS_DEFEATS    = 3;
+    public static final int STATS_TIME        = 4;
+    public static final int STATS_DRAWS        = 5;
+    
+    /*
+     * Database constants
+     */
+    /** database version */
+    private static final int DATABASE_VERSION = 1;
+     
     /** database name */
     private static final String DATABASE_NAME = "Stats";
  
     /** database table */
     private static final String TABLE_STATS = "stats";
-	
+    
     /*
      * Columns
      */
@@ -44,14 +44,14 @@ public class Stats extends SQLiteOpenHelper {
      * Create database
      * @param context
      */
-	public Stats(Context context) {
-		super(context, DATABASE_NAME, null, DATABASE_VERSION);
-	}
-	
-	/*
-	 * (non-Javadoc)
-	 * @see android.database.sqlite.SQLiteOpenHelper#onCreate(android.database.sqlite.SQLiteDatabase)
-	 */
+    public Stats(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+    
+    /*
+     * (non-Javadoc)
+     * @see android.database.sqlite.SQLiteOpenHelper#onCreate(android.database.sqlite.SQLiteDatabase)
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_STATS + "("
@@ -92,13 +92,13 @@ public class Stats extends SQLiteOpenHelper {
      * @return
      */
     private int update(int id, int value) {
-    	SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase();
         
         ContentValues values = new ContentValues();
         values.put(KEY_VALUE, value);
      
         int result = db.update(TABLE_STATS, values, KEY_ID + " = ?",
-        		new String[] { String.valueOf(id) });
+                new String[] { String.valueOf(id) });
         
         db.close();
         
@@ -124,11 +124,11 @@ public class Stats extends SQLiteOpenHelper {
      
         int result = -1;
         Cursor cursor = db.query(TABLE_STATS, new String[] { KEY_VALUE },
-        		KEY_ID + "=?",
+                KEY_ID + "=?",
                 new String[] { String.valueOf(id) }, null, null, null, null);
         if(cursor != null && cursor.getCount() > 0) {
-        	cursor.moveToFirst();
-        	result = cursor.getInt(0);
+            cursor.moveToFirst();
+            result = cursor.getInt(0);
         }
         
         if(cursor != null) cursor.close();
@@ -144,12 +144,12 @@ public class Stats extends SQLiteOpenHelper {
      * @param value
      */
     public void add(int id, int value) {
-    	int old = get(id);
-    	if(old != -1) {
-    		value += old;
-    		update(id, value);
-    	} else {
-    		insert(id, value);
-    	}
+        int old = get(id);
+        if(old != -1) {
+            value += old;
+            update(id, value);
+        } else {
+            insert(id, value);
+        }
     }
 }

@@ -11,25 +11,25 @@ import android.widget.TextView;
  * @author Aleksandr Belkin
  */
 public class McText extends TextView {
-	/**
-	 * Creates Minecraft styled text view
-	 * @param context
-	 */
-	public McText(Context context) {
-		super(context);
-		
-		float den = getResources().getDisplayMetrics().density;
-		
-		// set font
-		setTypeface(McStyle.getFont(context));
-		
-		// set text colour
-		setTextColor(McStyle.TEXT_COLOUR_CONTENT);
-		
-		// set text shadow
-		setShadowLayer(1f, den, den, Color.BLACK);
+    /**
+     * Creates Minecraft styled text view
+     * @param context
+     */
+    public McText(Context context) {
+        super(context);
+        
+        float den = getResources().getDisplayMetrics().density;
+        
+        // set font
+        setTypeface(McStyle.getFont(context));
+        
+        // set text colour
+        setTextColor(McStyle.TEXT_COLOUR_CONTENT);
+        
+        // set text shadow
+        setShadowLayer(1f, den, den, Color.BLACK);
 
-		// set text size
-		setTextSize(TypedValue.COMPLEX_UNIT_DIP, McStyle.TEXT_SIZE);
-	}
+        // set text size
+        setTextSize(TypedValue.COMPLEX_UNIT_DIP, McStyle.TEXT_SIZE);
+    }
 }

@@ -6,12 +6,12 @@ package sq.squ1rr.mcc4.util;
  * @author Aleksandr Belkin
  */
 public class GlobalConstants {
-	/** debug flag */
-	public static final boolean DEBUG = true;
-	
-	/** delay between AI turn */
-	public static final int AI_DELAY = 200; // ms
-	
-	/** delay between WIN and dialogue */
-	public static final int WIN_DELAY = 1000; // 1s
+    /** debug flag */
+    public static final boolean DEBUG = true;
+    
+    /** delay between AI turn */
+    public static final int AI_DELAY = 200; // ms
+    
+    /** delay between WIN and dialogue */
+    public static final int WIN_DELAY = 1000; // 1s
 }

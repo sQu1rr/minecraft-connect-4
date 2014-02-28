@@ -16,18 +16,18 @@ import android.util.Log;
  * @author Aleksandr Belkin
  */
 public class BoardRenderer implements Renderer {
-	/** debugging tag */
-	private static final String TAG = BoardRenderer.class.getName();
-	
-	/** parent context */
-	private final Context context;
-	
-	/** game board */
-	private final GameBoard game;
+    /** debugging tag */
+    private static final String TAG = BoardRenderer.class.getName();
     
-	/*
-	 * Size
-	 */
+    /** parent context */
+    private final Context context;
+    
+    /** game board */
+    private final GameBoard game;
+    
+    /*
+     * Size
+     */
     private int width = -1;
     private int height = -1;
     
@@ -54,11 +54,11 @@ public class BoardRenderer implements Renderer {
      * @param _game
      */
     public BoardRenderer(Context _context, GameBoard _game) {
-    	context = _context;
-    	game = _game;
+        context = _context;
+        game = _game;
 
-    	// set last time to current time
-    	lastTime = System.currentTimeMillis();
+        // set last time to current time
+        lastTime = System.currentTimeMillis();
     }
  
     /*
@@ -79,7 +79,7 @@ public class BoardRenderer implements Renderer {
         
         // FPS counter text
         glText = new SpriteString(gl, context);
-    	glText.load((int)McStyle.getTextSize(context));
+        glText.load((int)McStyle.getTextSize(context));
         
         surfaceCreated = true;
         width = -1;
@@ -123,31 +123,31 @@ public class BoardRenderer implements Renderer {
      */
     @Override
     public void onDrawFrame(GL10 gl) { 
-    	if(pause) return; // shouldn't be executed anyway, but lets be safe
-    	
-    	// clear the screen
-    	gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
-		
-    	// draw the game
-		game.draw(gl);		
-    	
-		// show the FPS
+        if(pause) return; // shouldn't be executed anyway, but lets be safe
+        
+        // clear the screen
+        gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
+        
+        // draw the game
+        game.draw(gl);        
+        
+        // show the FPS
         if(countFps) {
             frames++;
             long currentTime = System.currentTimeMillis();
             if(currentTime - lastTime >= 1000) {
-            	fps = frames;
-            	frames = 0;
+                fps = frames;
+                frames = 0;
                 lastTime = currentTime;
             }
-    		
+            
             gl.glEnable(GL10.GL_BLEND);
-    		gl.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
-    		
-    		gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
-    		gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
-    		
-    		gl.glFrontFace(GL10.GL_CW);
+            gl.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
+            
+            gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
+            gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
+            
+            gl.glFrontFace(GL10.GL_CW);
 
             glText.draw("" + fps, 8, getHeight() - glText.getHeight() - 8);
             
@@ -167,14 +167,14 @@ public class BoardRenderer implements Renderer {
      * Sets the pause boolean to true
      */
     public void onPause() {
-    	pause = true;
+        pause = true;
     }
     
     /**
      * Sets the pause boolean to false
      */
     public void onResume() {
-    	pause = false;
+        pause = false;
     }
     
     /**
@@ -182,7 +182,7 @@ public class BoardRenderer implements Renderer {
      * @return
      */
     public int getWidth() {
-    	return width;
+        return width;
     }
     
     /**
@@ -190,7 +190,7 @@ public class BoardRenderer implements Renderer {
      * @return
      */
     public int getHeight() {
-    	return height;
+        return height;
     }
     
     /**
@@ -198,6 +198,6 @@ public class BoardRenderer implements Renderer {
      * @param _countFps
      */
     public void setCountFps(boolean _countFps) {
-    	countFps = _countFps;
+        countFps = _countFps;
     }
 }

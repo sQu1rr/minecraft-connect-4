@@ -6,9 +6,9 @@ package sq.squ1rr.mcc4.ai;
  * @author Aleksandr Belkin
  */
 public interface Ai {
-	/**
-	 * Runs the logic, returns the column to put the chip in
-	 * @return
-	 */
-	public int run();
+    /**
+     * Runs the logic, returns the column to put the chip in
+     * @return
+     */
+    public int run();
 }

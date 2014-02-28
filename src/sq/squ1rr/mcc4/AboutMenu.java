@@ -18,102 +18,102 @@ import android.view.View.OnClickListener;
  * @author Aleksandr Belkin
  */
 public class AboutMenu extends MenuLayout {
-	
-	/** parent activity */
-	private final MainMenuActivity activity;
-	
-	/*
-	 * UI Views
-	 */
-	private McButton btnBack = null;
-	
-	/**
-	 * Sets up theme
-	 */
-	public AboutMenu(MainMenuActivity _activity) {
-		super(Theme.DIRT);
-		
-		activity = _activity;
-	}
-	
-	/*
-	 * (non-Javadoc)
-	 * @see sq.squ1rr.mcc4.layout.MenuLayout#build(sq.squ1rr.mcc4.layout.LayoutManager)
-	 */
-	@Override
-	public void build(LayoutManager layout) {
-		buildHeader(layout);
-		buildContent(layout);
-		buildFooter(layout);
-	}
-	
-	/**
-	 * Build header views
-	 * @param layout
-	 */
-	private void buildHeader(LayoutManager layout) {
-		McText text = new McText(activity);
-			text.setText(activity.getString(R.string.menu_about));
-			text.setGravity(Gravity.CENTER_HORIZONTAL);
-			text.setTextColor(McStyle.TEXT_COLOUR_TITLE);
-		layout.add(text, LayoutPart.HEADER);
-	}
-	
-	/**
-	 * Build content views
-	 * @param layout
-	 */
-	private void buildContent(LayoutManager layout) {
-		// Copyright
-		McText title = new McText(activity);
-			title.setText(activity.getString(R.string.about));
-			title.setTextColor(McStyle.TEXT_COLOUR_TITLE);
-		layout.add(title);
-		
-		// Minecraft disclaimer
-		title = new McText(activity);
-			title.setText(activity.getString(R.string.about2));
-			title.setTextColor(McStyle.TEXT_COLOUR_TITLE);
-		layout.add(title);
-		
-		// GIT
-		title = new McText(activity);
-			title.setMovementMethod(LinkMovementMethod.getInstance());
-			title.setTextColor(McStyle.TEXT_COLOUR_TITLE);
-			title.setLinksClickable(true);
-			title.setLinkTextColor(McStyle.TEXT_COLOUR_SELECTED);
-			title.setAutoLinkMask(Linkify.ALL);
-			title.setText(activity.getString(R.string.about3));
-		layout.add(title);
-		
-		// License
-		title = new McText(activity);
-			title.setText(activity.getString(R.string.about4));
-			title.setTextColor(McStyle.TEXT_COLOUR_TITLE);
-		layout.add(title);
-	}
-	
-	/**
-	 * Build footer views
-	 * @param layout
-	 */
-	private void buildFooter(LayoutManager layout) {
-		// back button
-		btnBack = new McButton(activity);
-			btnBack.setOnClickListener(clickListener);
-			btnBack.setText(activity.getString(R.string.menu_back));
-		layout.add(btnBack, LayoutPart.FOOTER);
-	}
-	
-	/**
-	 * Handles button clicks
-	 */
-	private OnClickListener clickListener = new OnClickListener() {
-		@Override
-		public void onClick(View view) {
-			if(view == btnBack) {
-				activity.onBackPressed();
-			}
-		}
-	};
+    
+    /** parent activity */
+    private final MainMenuActivity activity;
+    
+    /*
+     * UI Views
+     */
+    private McButton btnBack = null;
+    
+    /**
+     * Sets up theme
+     */
+    public AboutMenu(MainMenuActivity _activity) {
+        super(Theme.DIRT);
+        
+        activity = _activity;
+    }
+    
+    /*
+     * (non-Javadoc)
+     * @see sq.squ1rr.mcc4.layout.MenuLayout#build(sq.squ1rr.mcc4.layout.LayoutManager)
+     */
+    @Override
+    public void build(LayoutManager layout) {
+        buildHeader(layout);
+        buildContent(layout);
+        buildFooter(layout);
+    }
+    
+    /**
+     * Build header views
+     * @param layout
+     */
+    private void buildHeader(LayoutManager layout) {
+        McText text = new McText(activity);
+            text.setText(activity.getString(R.string.menu_about));
+            text.setGravity(Gravity.CENTER_HORIZONTAL);
+            text.setTextColor(McStyle.TEXT_COLOUR_TITLE);
+        layout.add(text, LayoutPart.HEADER);
+    }
+    
+    /**
+     * Build content views
+     * @param layout
+     */
+    private void buildContent(LayoutManager layout) {
+        // Copyright
+        McText title = new McText(activity);
+            title.setText(activity.getString(R.string.about));
+            title.setTextColor(McStyle.TEXT_COLOUR_TITLE);
+        layout.add(title);
+        
+        // Minecraft disclaimer
+        title = new McText(activity);
+            title.setText(activity.getString(R.string.about2));
+            title.setTextColor(McStyle.TEXT_COLOUR_TITLE);
+        layout.add(title);
+        
+        // GIT
+        title = new McText(activity);
+            title.setMovementMethod(LinkMovementMethod.getInstance());
+            title.setTextColor(McStyle.TEXT_COLOUR_TITLE);
+            title.setLinksClickable(true);
+            title.setLinkTextColor(McStyle.TEXT_COLOUR_SELECTED);
+            title.setAutoLinkMask(Linkify.ALL);
+            title.setText(activity.getString(R.string.about3));
+        layout.add(title);
+        
+        // License
+        title = new McText(activity);
+            title.setText(activity.getString(R.string.about4));
+            title.setTextColor(McStyle.TEXT_COLOUR_TITLE);
+        layout.add(title);
+    }
+    
+    /**
+     * Build footer views
+     * @param layout
+     */
+    private void buildFooter(LayoutManager layout) {
+        // back button
+        btnBack = new McButton(activity);
+            btnBack.setOnClickListener(clickListener);
+            btnBack.setText(activity.getString(R.string.menu_back));
+        layout.add(btnBack, LayoutPart.FOOTER);
+    }
+    
+    /**
+     * Handles button clicks
+     */
+    private OnClickListener clickListener = new OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            if(view == btnBack) {
+                activity.onBackPressed();
+            }
+        }
+    };
 }

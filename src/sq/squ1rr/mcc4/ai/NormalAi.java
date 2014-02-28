@@ -9,30 +9,30 @@ import sq.squ1rr.mcc4.rules.Player;
  * @author Aleksandr Belkin
  */
 public class NormalAi extends EasyAi {
-	/**
-	 * Create and initialise AI
-	 * @param grid
-	 */
-	public NormalAi(int[][] grid) {
-		super(grid);
-	}
+    /**
+     * Create and initialise AI
+     * @param grid
+     */
+    public NormalAi(int[][] grid) {
+        super(grid);
+    }
 
-	/*
-	 * (non-Javadoc)
-	 * @see ai.EasyAi#run()
-	 */
-	@Override
-	public int run() {
-		return super.run();
-	}
-	
-	/*
-	 * (non-Javadoc)
-	 * @see ai.EasyAi#analyse(int, int, int)
-	 */
-	@Override
-	protected int analyse(int col, int row, int com) {
-		com = countCombinations(col, row, Player.PLAYER1);
-		return super.analyse(col, row, com);
-	}
+    /*
+     * (non-Javadoc)
+     * @see ai.EasyAi#run()
+     */
+    @Override
+    public int run() {
+        return super.run();
+    }
+    
+    /*
+     * (non-Javadoc)
+     * @see ai.EasyAi#analyse(int, int, int)
+     */
+    @Override
+    protected int analyse(int col, int row, int com) {
+        com = countCombinations(col, row, Player.PLAYER1);
+        return super.analyse(col, row, com);
+    }
 }
