@@ -7,6 +7,8 @@ import sq.squ1rr.mcc4.layout.LayoutManager.LayoutPart;
 import sq.squ1rr.mcc4.layout.LayoutManager.Theme;
 import sq.squ1rr.mcc4.layout.McButton;
 import sq.squ1rr.mcc4.layout.McText;
+import android.text.method.LinkMovementMethod;
+import android.text.util.Linkify;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -62,16 +64,33 @@ public class AboutMenu extends MenuLayout {
 	 * @param layout
 	 */
 	private void buildContent(LayoutManager layout) {
-		// title
+		// Copyright
 		McText title = new McText(activity);
 			title.setText(activity.getString(R.string.about));
 			title.setTextColor(McStyle.TEXT_COLOUR_TITLE);
 		layout.add(title);
 		
+		// Minecraft disclaimer
 		title = new McText(activity);
-		title.setText(activity.getString(R.string.about2));
-		title.setTextColor(McStyle.TEXT_COLOUR_TITLE);
-	layout.add(title);
+			title.setText(activity.getString(R.string.about2));
+			title.setTextColor(McStyle.TEXT_COLOUR_TITLE);
+		layout.add(title);
+		
+		// GIT
+		title = new McText(activity);
+			title.setMovementMethod(LinkMovementMethod.getInstance());
+			title.setTextColor(McStyle.TEXT_COLOUR_TITLE);
+			title.setLinksClickable(true);
+			title.setLinkTextColor(McStyle.TEXT_COLOUR_SELECTED);
+			title.setAutoLinkMask(Linkify.ALL);
+			title.setText(activity.getString(R.string.about3));
+		layout.add(title);
+		
+		// License
+		title = new McText(activity);
+			title.setText(activity.getString(R.string.about4));
+			title.setTextColor(McStyle.TEXT_COLOUR_TITLE);
+		layout.add(title);
 	}
 	
 	/**

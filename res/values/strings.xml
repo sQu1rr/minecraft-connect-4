@@ -75,6 +75,8 @@
     
     <!-- About -->
     <string name="about">&#169; 2014 Aleksandr Belkin.</string>
-    <string name="about2">Style and most textures are intillectual property of Mojang.</string>
+    <string name="about2">Disclaimer: Style and most textures are intillectual property of Mojang.</string>
+    <string name="about3">Feel free to contribute: https://github.com/sQu1rr/minecraft-connect-4</string>
+    <string name="about4">The code is licensed under MIT License (MIT).</string>
 
 </resources>
