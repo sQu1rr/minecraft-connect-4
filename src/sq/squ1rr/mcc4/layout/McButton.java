@@ -15,7 +15,6 @@ import android.widget.Button;
 
 /**
  * Base class for Minecraft-looking buttons.
- * TODO: LDPI display shows ugly buttons
  * @author Aleksandr Belkin
  */
 public class McButton extends Button {

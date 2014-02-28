@@ -183,7 +183,9 @@ public class McStyle {
 	public static int getButtonUnit(Context context) {
 		if(buttonUnit == 0) {
 			// must divide by 2
-			buttonUnit = ((int)convertDpiToPx(context, BUTTON_UNIT) / 2) * 2;
+			buttonUnit = ((int)convertDpiToPx(context, BUTTON_UNIT) / 2);
+			if(buttonUnit < 1) buttonUnit = 1;
+			buttonUnit *= 2; // must be at least 2
 		}
 		return buttonUnit;
 	}
@@ -196,7 +198,9 @@ public class McStyle {
 	public static int getTogglerUnit(Context context) {
 		if(togglerUnit == 0) {
 			// must divide by 4
-			togglerUnit = ((int)convertDpiToPx(context, TOGGLER_UNIT) / 4) * 4;
+			togglerUnit = ((int)convertDpiToPx(context, TOGGLER_UNIT) / 4);
+			if(togglerUnit < 1) togglerUnit = 1;
+			togglerUnit *= 4; // must be at least 4
 		}
 		return togglerUnit;
 	}

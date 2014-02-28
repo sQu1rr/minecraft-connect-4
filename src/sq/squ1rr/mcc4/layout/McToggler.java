@@ -15,7 +15,6 @@ import android.widget.ToggleButton;
 
 /**
  * Toggle button that switches on or off
- * TODO: LDPI display shows ugly buttons
  * @author Aleksandr Belkin
  */
 public class McToggler extends ToggleButton {
